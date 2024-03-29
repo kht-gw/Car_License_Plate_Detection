@@ -21,4 +21,4 @@ jobs:
               continue-on-error: true
             - name: Test with pytest
               run: |
-                python -m unittest test/test/pipeline.py -v
+                python -m unittest test/pipeline.py -v
