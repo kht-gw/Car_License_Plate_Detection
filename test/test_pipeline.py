@@ -20,7 +20,7 @@ class test_image(unittest.TestCase):
     def test_image(self):
         text = ""
         current_dir = os.getcwd()
-        img_path = os.path.join(current_dir, "assets/Cars187.png")
+        img_path = os.path.join(current_dir, "assets/Cars297.png")
 
         out_results = self.pipeline.detect_and_ocr(
             "IMAGE", img_path, current_dir, False
@@ -29,7 +29,7 @@ class test_image(unittest.TestCase):
         text = results[0]["ocr_text"]
         text = text.replace(" ", "")
 
-        self.assertEqual(text, "ALR486")
+        self.assertEqual(text, "IM4U555")
 
 
 if __name__ == "__main__":
