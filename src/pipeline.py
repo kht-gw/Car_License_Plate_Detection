@@ -34,7 +34,9 @@ class Pipeline:
         self.dir_manager = DirectoryManager()
         self.logger = Logger().get_instance()
 
-    def detect_and_ocr(self, mode: str, input_path: str, save_dir: str) -> None:
+    def detect_and_ocr(
+        self, mode: str, input_path: str, save_dir: str, save=True
+    ) -> None:
         """Detect Car License Plates  and Extract Text with OCR
         Args:
             mode (str) : IMAGE mode or VIDEO mode
@@ -48,7 +50,7 @@ class Pipeline:
         if mode == "IMAGE":  # image mode
             if os.path.isdir(input_path):
                 if len(os.listdir(input_path)) == 0:
-                    self.logger.error("Empty Directory!")
+                    self.logger.warn("Empty Directory!")
                     exit()
 
                 count = self.dir_manager.count_images(input_path)
@@ -60,19 +62,20 @@ class Pipeline:
 
             elif os.path.isfile(input_path):
                 if not self.dir_manager.is_file_image:
-                    self.logger.ERROR(
-                        "Inside - detect_and_ocr : Can accept imageonly in jpg or png format."
-                    )
+                    self.logger.error("Can accept image only in jpg or png format.")
                     exit()
+
             self.create_image_mode_dirs(save_dir)  # create dirs to store results
             results = self.detector.predict_image(input_path)
-            final_results = self.process_img_results(results, save_dir)
+            final_results = self.process_img_results(results, save_dir, save)
+            if save:
+                self.save_as_json(final_results, save_dir)  # save results in json file
+                self.logger.info(
+                    "\n Detection finished! You can check the detected images inside : "
+                    + save_dir
+                )
 
-            self.save_as_json(final_results, save_dir)  # save results in json file
-            self.logger.info(
-                "\n Detection finished! You can check the detected images inside : "
-                + save_dir
-            )
+            return results
 
         elif mode == "VIDEO":
             if os.path.isfile(input_path) and mimetypes.guess_type(input_path)[
@@ -89,11 +92,12 @@ class Pipeline:
                     "Input path is not a video file! Video Mode only accepts a video file"
                 )
 
-    def process_img_results(self, results: list, save_dir: str) -> list:
+    def process_img_results(self, results: list, save_dir: str, save: bool) -> list:
         """Process Detection Results
         Args:
             results (str) : detection results
             save_dir (str) : path of output results
+            save (bool) : save results or not
 
         Returns:
             results: list of detectin results
@@ -139,7 +143,7 @@ class Pipeline:
                     text = "license_plate"
 
                 # save results and images if the image is not small
-                if width > MIN_BBOX_WIDTH and height > MIN_BBOX_HEIGHT:
+                if save and width > MIN_BBOX_WIDTH and height > MIN_BBOX_HEIGHT:
                     detection_detail["bbox_coordinate"] = bbox
                     detection_detail["detection_score"] = round(detection_conf, 3)
                     detection_detail["ocr_text"] = text
@@ -159,8 +163,9 @@ class Pipeline:
             json_dict["results"] = detection_details
             output_results.append(json_dict)
 
-            bbox_image_dir = os.path.join(save_dir, "bbox_images")
-            self.save_img(bbox_img, bbox_image_dir, filename)  # save bbox image
+            if save:
+                bbox_image_dir = os.path.join(save_dir, "bbox_images")
+                self.save_img(bbox_img, bbox_image_dir, filename)  # save bbox image
 
         return output_results
 
