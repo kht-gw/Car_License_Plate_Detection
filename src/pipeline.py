@@ -12,8 +12,8 @@ import os
 import time
 import json
 import mimetypes
-from licenseplate_detector import LicensePlateDetector
-from ocr_model import OCR_Model
+from .licenseplate_detector import LicensePlateDetector
+from .ocr_model import OCR_Model
 from utils.logger import Logger
 from utils.directory_manager import DirectoryManager
 from config.configurations import (
@@ -67,6 +67,7 @@ class Pipeline:
 
             self.create_image_mode_dirs(save_dir)  # create dirs to store results
             results = self.detector.predict_image(input_path)
+
             final_results = self.process_img_results(results, save_dir, save)
             if save:
                 self.save_as_json(final_results, save_dir)  # save results in json file
@@ -74,8 +75,8 @@ class Pipeline:
                     "\n Detection finished! You can check the detected images inside : "
                     + save_dir
                 )
-
-            return results
+            self.final_results = final_results
+            return final_results
 
         elif mode == "VIDEO":
             if os.path.isfile(input_path) and mimetypes.guess_type(input_path)[
@@ -91,6 +92,9 @@ class Pipeline:
                 self.logger.error(
                     "Input path is not a video file! Video Mode only accepts a video file"
                 )
+
+        else:
+            self.logger.error("Please type mode correctly!")
 
     def process_img_results(self, results: list, save_dir: str, save: bool) -> list:
         """Process Detection Results
@@ -143,7 +147,7 @@ class Pipeline:
                     text = "license_plate"
 
                 # save results and images if the image is not small
-                if save and width > MIN_BBOX_WIDTH and height > MIN_BBOX_HEIGHT:
+                if width > MIN_BBOX_WIDTH and height > MIN_BBOX_HEIGHT:
                     detection_detail["bbox_coordinate"] = bbox
                     detection_detail["detection_score"] = round(detection_conf, 3)
                     detection_detail["ocr_text"] = text
@@ -153,8 +157,8 @@ class Pipeline:
                     img_filename = filename.split(".")[0]
                     crop_img_name = img_filename + "_" + str(crop_id) + ".jpg"
                     crop_out_dir = os.path.join(save_dir, "crops")
-
-                    self.save_img(cropped_img, crop_out_dir, crop_img_name)
+                    if save:
+                        self.save_img(cropped_img, crop_out_dir, crop_img_name)
                     crop_id += 1
 
                 bbox_img = self.get_bbox_image(image, coords)
