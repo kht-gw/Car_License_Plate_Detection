@@ -10,7 +10,6 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 import unittest
 from src.pipeline import Pipeline
 import os
-from utils.logger import Logger
 
 
 class test_image(unittest.TestCase):

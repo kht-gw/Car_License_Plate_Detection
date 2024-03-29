@@ -7,3 +7,5 @@
 2024-03-29 12:58:52,851 - INFO - test_pipeline - /home/khaing/GW/Training Period/Phase3/pipeline/version1/Cars187.png
 2024-03-29 12:59:20,244 - INFO - test_pipeline - /home/khaing/GW/Training Period/Phase3/pipeline/version1/test/Cars187.png
 2024-03-29 13:01:45,431 - INFO - test_pipeline - /home/khaing/GW/Training Period/Phase3/pipeline/version1/test/Cars187.png
+2024-03-29 14:47:44,616 - INFO - pipeline - 
+ Detection finished! You can check the detected images inside : /home/khaing/GW/Training Period/Phase3/pipeline/version1/

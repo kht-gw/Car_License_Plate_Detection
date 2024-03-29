@@ -12,8 +12,8 @@ import os
 import time
 import json
 import mimetypes
-from .licenseplate_detector import LicensePlateDetector
-from .ocr_model import OCR_Model
+from src.licenseplate_detector import LicensePlateDetector
+from src.ocr_model import OCR_Model
 from utils.logger import Logger
 from utils.directory_manager import DirectoryManager
 from config.configurations import (

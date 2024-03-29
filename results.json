@@ -1,0 +1,244 @@
+[
+  {
+    "file_name": "Image1.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          318.267,
+          435.836,
+          354.248,
+          453.046
+        ],
+        "detection_score": 0.522,
+        "ocr_text": "license_plate",
+        "ocr_score": 0.0
+      },
+      {
+        "bbox_coordinate": [
+          650.328,
+          508.046,
+          710.732,
+          524.877
+        ],
+        "detection_score": 0.423,
+        "ocr_text": "G-RJ559",
+        "ocr_score": 0.894
+      },
+      {
+        "bbox_coordinate": [
+          119.648,
+          351.935,
+          143.792,
+          366.069
+        ],
+        "detection_score": 0.339,
+        "ocr_text": "license_plate",
+        "ocr_score": 0.0
+      }
+    ]
+  },
+  {
+    "file_name": "Image10.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          209.373,
+          652.084,
+          320.129,
+          681.438
+        ],
+        "detection_score": 0.726,
+        "ocr_text": "5AB1749",
+        "ocr_score": 0.989
+      },
+      {
+        "bbox_coordinate": [
+          698.634,
+          614.154,
+          795.444,
+          644.927
+        ],
+        "detection_score": 0.711,
+        "ocr_text": "5AB 6089",
+        "ocr_score": 0.934
+      },
+      {
+        "bbox_coordinate": [
+          1447.834,
+          516.287,
+          1507.958,
+          536.824
+        ],
+        "detection_score": 0.439,
+        "ocr_text": "5AH5098",
+        "ocr_score": 0.994
+      },
+      {
+        "bbox_coordinate": [
+          1116.762,
+          593.404,
+          1169.191,
+          614.056
+        ],
+        "detection_score": 0.348,
+        "ocr_text": "5AB64",
+        "ocr_score": 0.99
+      }
+    ]
+  },
+  {
+    "file_name": "Image11.png",
+    "results": [
+      {
+        "bbox_coordinate": [
+          991.743,
+          345.92,
+          1105.533,
+          377.31
+        ],
+        "detection_score": 0.73,
+        "ocr_text": "y39280178",
+        "ocr_score": 0.957
+      },
+      {
+        "bbox_coordinate": [
+          383.233,
+          382.291,
+          506.335,
+          413.531
+        ],
+        "detection_score": 0.72,
+        "ocr_text": "K094EH198",
+        "ocr_score": 0.944
+      }
+    ]
+  },
+  {
+    "file_name": "Image2.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          400.694,
+          314.585,
+          514.891,
+          373.899
+        ],
+        "detection_score": 0.715,
+        "ocr_text": "1883CF",
+        "ocr_score": 0.985
+      }
+    ]
+  },
+  {
+    "file_name": "Image4.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          171.775,
+          204.97,
+          199.7,
+          220.242
+        ],
+        "detection_score": 0.601,
+        "ocr_text": "license_plate",
+        "ocr_score": 0.0
+      }
+    ]
+  },
+  {
+    "file_name": "Image6.jpg",
+    "results": []
+  },
+  {
+    "file_name": "Image7.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          414.782,
+          209.317,
+          455.514,
+          224.393
+        ],
+        "detection_score": 0.504,
+        "ocr_text": "license_plate",
+        "ocr_score": 0.0
+      }
+    ]
+  },
+  {
+    "file_name": "Image8.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          419.117,
+          846.259,
+          514.072,
+          875.956
+        ],
+        "detection_score": 0.522,
+        "ocr_text": "T-LAH-912",
+        "ocr_score": 0.951
+      },
+      {
+        "bbox_coordinate": [
+          69.966,
+          1305.569,
+          197.43,
+          1334.0
+        ],
+        "detection_score": 0.444,
+        "ocr_text": "T-XAE-778",
+        "ocr_score": 0.934
+      },
+      {
+        "bbox_coordinate": [
+          789.209,
+          1193.656,
+          899.319,
+          1227.926
+        ],
+        "detection_score": 0.362,
+        "ocr_text": "1TOB-863",
+        "ocr_score": 0.9
+      },
+      {
+        "bbox_coordinate": [
+          117.291,
+          1111.445,
+          192.177,
+          1139.237
+        ],
+        "detection_score": 0.284,
+        "ocr_text": "TAXI",
+        "ocr_score": 0.785
+      },
+      {
+        "bbox_coordinate": [
+          335.011,
+          1107.333,
+          387.502,
+          1135.223
+        ],
+        "detection_score": 0.284,
+        "ocr_text": "license_plate",
+        "ocr_score": 0.0
+      }
+    ]
+  },
+  {
+    "file_name": "Image9.png",
+    "results": [
+      {
+        "bbox_coordinate": [
+          346.683,
+          466.382,
+          460.974,
+          496.522
+        ],
+        "detection_score": 0.812,
+        "ocr_text": "KL39J3033",
+        "ocr_score": 0.986
+      }
+    ]
+  }
+]
