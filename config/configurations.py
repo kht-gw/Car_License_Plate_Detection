@@ -17,8 +17,7 @@ OCR_PARAMS = {
 }
 
 DETECTOR_PARAMS = {
-    'conf': 0.25,
-     
+    "conf": 0.25,
 }
 
 IMAGE_COUNT = 1000
