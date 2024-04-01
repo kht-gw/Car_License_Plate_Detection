@@ -19,7 +19,7 @@ class test_image(unittest.TestCase):
     def test_image(self):
         text = ""
         current_dir = os.getcwd()
-        img_path = os.path.join(current_dir, "assets/Cars297.png")
+        img_path = os.path.join(current_dir, "assets/images/Cars297.png")
 
         out_results = self.pipeline.detect_and_ocr(
             "IMAGE", img_path, current_dir, False
