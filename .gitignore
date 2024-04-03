@@ -2,3 +2,8 @@ __pycache__/
 venv
 save
 utils/log.log
+.gitignore
+src/*
+!src/license_plate
+license-plate
+assets/sample_run
