@@ -1,4 +1,4 @@
-# Readme
+# Overview
 
 This project is the final pipeline of car license plate detection and recognition of car license plate text.
 Image or video can be detected.  
@@ -24,38 +24,49 @@ If mode is 2, the input path should be the directory to a single video.
 ~~~
 ---
 
-### Download Source Code
+## Download Source Code
 ```shell
 $ git clone https://github.com/kht-gw/Final_Pipeline.git
 $ cd Final_Pipeline
 ```
 
+# Inatallation
 
-## Install With Docker
-If the system has docker installed, docker can be utilized to run the project. 
+The installation setup can be of three types. You can follow one of the three methods to install. 
 
-### Run docker with Makefile
+## 1. Install With Docker by Makefile
+
+
+###  Build docker with Makefile
 ```shell
 $ make docker-build
-$ make docker-run
+```
+### Run docker with Makefile
+This processes sample images from the  project. The images path is /assets/images. 
+
+```shell
+$ make docker-run-image
 ```
 
-### Run Docker manually
-#### Build Docker
+## 2. Install with Docker manually
+
+If you want to handle more on docker commands, please follow this steps. 
+
+### Build Docker
 ```shell
 # $ docker build -t {docker_image} -f Docker/Dockerfile .
 $ docker build -t car_license_app -f Docker/Dockerfile .
-
 ```
-#### Run Docker
 
+
+### Run Docker for Image Mode
 ```shell
 # docker run -it --rm -v {project_path}:/car_license_app/ --gpus all --network=host {docker_image} {mode} "{image_path }" "{output_path}"
 
 $ docker run -it --rm -v ./:/car_license_app/ --gpus all --network=host car_license_app  1 "assets/images" "assets/sample_run"
 ```
 
-### Run Docker for Video Detection
+#### Run Docker for Video Mode
 Replace the variables in the following command with the actual values. 
 
 * {project_path} : path to project (Final_Pipeline)
@@ -72,7 +83,7 @@ Replace the variables in the following command with the actual values.
 
 
 
-## Install with Venv
+## 3. Install with Venv
 If you don't want to install with docker, you can install on local machine via virtualenv. 
 
 ``` shell
@@ -82,17 +93,16 @@ $ pip install -U pip
 $ pip install -e .
 ```
 
-### Run App
 
-#### Image Detection
+### Run for Image Detection
 The following command detects and generate ocr text of images. You can replace {mode} {input_image_dir} {output_dir} with respective values.
 ```shell
 # $ python3 src/license_plate/main.py {mode=1} {input_image_dir} {output_dir}
 $ python3 src/license_plate/main.py 1 "assets/images" "assets/sample_run"
 ```
 
-#### Video Detection
-Replace the variables inside {} with actual values. Please reference [Input Arguments](#Input-Arguments)
+### Run for Video Detection
+Replace the variables inside {} with actual values. Please reference [Input Arguments](#Input-Arguments) for more.
 
 ```shell
 $ python3 src/license_plate/main.py {mode} {video_dir} {output_dir}
@@ -101,7 +111,7 @@ $ python3 src/license_plate/main.py {mode} {video_dir} {output_dir}
 
 
 
-## Output of Image Mode
+## Outputs of Image Mode
 
 After doing detection and ocr, the following outputs will be genereted in sample_run foder automatically. 'crops' directory contains cropped car license plate images. 'bbox_images' contains the images with detected car license plates and ocr text. 
 'results.json' is the json file containing all the information of the process. 
