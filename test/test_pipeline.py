@@ -8,7 +8,7 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
 import unittest
-from src.pipeline import Pipeline
+from src.license_plate.pipeline import Pipeline
 import os
 
 
