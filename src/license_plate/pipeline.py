@@ -12,11 +12,11 @@ import os
 import time
 import json
 import mimetypes
-from src.licenseplate_detector import LicensePlateDetector
-from src.ocr_model import OCR_Model
-from utils.logger import Logger
-from utils.directory_manager import DirectoryManager
-from config.configurations import (
+from license_plate.licenseplate_detector import LicensePlateDetector
+from license_plate.ocr_model import OCR_Model
+from license_plate.utils.logger import Logger
+from license_plate.utils.directory_manager import DirectoryManager
+from license_plate.config.configurations import (
     IMAGE_COUNT,
     MIN_BBOX_HEIGHT,
     MIN_BBOX_WIDTH,
@@ -296,7 +296,7 @@ class Pipeline:
             w = x2 - x1
 
             if w < 30:
-                font_scale = 1
+                font_scale = 1.2
             else:
                 font_scale = 1.1
 

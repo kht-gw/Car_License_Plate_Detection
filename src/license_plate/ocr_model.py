@@ -8,7 +8,7 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
 from paddleocr import PaddleOCR
-from config.configurations import OCR_PARAMS
+from license_plate.config.configurations import OCR_PARAMS
 
 
 class OCR_Model:

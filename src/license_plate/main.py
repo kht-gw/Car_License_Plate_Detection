@@ -9,8 +9,8 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 
 import argparse
 import sys
-from pipeline import Pipeline
-from utils.logger import Logger
+from license_plate.pipeline import Pipeline
+from license_plate.utils.logger import Logger
 
 
 if __name__ == "__main__":

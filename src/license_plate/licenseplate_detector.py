@@ -8,7 +8,7 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
 from ultralytics import YOLO
-from utils.logger import Logger
+from license_plate.utils.logger import Logger
 
 
 class LicensePlateDetector:
