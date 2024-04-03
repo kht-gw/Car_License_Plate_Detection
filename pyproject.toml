@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "license_plate"
+version = "0.0.1"
+requires-python = ">=3.8"
+authors = [
+  {name="Khaing Hsu Thwe", email="khainghsuthwe@globalwalkers.co.jp"},
+]
+
+description = "car license plates detection and text recognition"
+readme = "README.md"
+
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+Homepage = "https://github.com/kht-gw/Final_Pipeline"
+Issues = "https://github.com/kht-gw/Final_Pipeline/issues"
+
+[project.optional-dependencies]
+dev = ["pytest == 7.4.2"]
