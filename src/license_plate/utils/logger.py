@@ -13,7 +13,7 @@ import logging
 class Logger(object):
 
     def __init__(self) -> None:
-        self.log_file = "utils/log.log"
+        self.log_file = "src/license_plate/utils/log.log"
         self.logger = logging.getLogger("mainlogger")
         self.logger.setLevel(logging.INFO)
         logging.basicConfig(
