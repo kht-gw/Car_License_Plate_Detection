@@ -13,5 +13,8 @@ DOCKER_NAME='car_license_app'
 docker-build:
 	docker build -t $(DOCKER_NAME) -f Docker/Dockerfile .
 
-docker-run: 
+docker-run-image: 
 	docker run -it --rm -v ./:/car_license_app/ --gpus all --network=host $(DOCKER_NAME)  1 "assets/images" "assets/sample_run"
+
+# docker-run-video: 
+# 	docker run -it --rm -v ./:/car_license_app/ --gpus all --network=host $(DOCKER_NAME)  2 "assets/images" "assets/sample_run"
