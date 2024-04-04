@@ -19,7 +19,6 @@ jobs:
                 python -m pip install --upgrade pip setuptools wheel
                 pip install -r requirements.txt
                 pip install -e .
-                python3 src/license_plate/weight_downloader.py 
               continue-on-error: true
             - name: Test with pytest
               run: |
