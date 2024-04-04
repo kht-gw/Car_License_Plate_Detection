@@ -1,0 +1,7 @@
+__pycache__/
+venv
+save
+src/*
+!src/license_plate
+src/license_plate/utils/log.log
+license-plate
