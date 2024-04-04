@@ -47,8 +47,8 @@ The Host OS specifications are as follow:
 
 ## Download Source Code
 ```shell
-$ git clone https://github.com/kht-gw/Final_Pipeline.git
-$ cd Final_Pipeline
+$ git clone https://github.com/kht-gw/Car_License_Plate_Detection.git
+$ cd Car_License_Plate_Detection
 ```
 
 # Inatallation
