@@ -3,7 +3,7 @@
 This project is the final pipeline of car license plate detection and recognition of car license plate text.
 Image or video can be detected.  
 
-![image](/assets/pipeline_architecture.jpg?raw=true)
+![image](/assets/pipeline_architecture.png?raw=true)
 
 ## Input Arguments 
 
