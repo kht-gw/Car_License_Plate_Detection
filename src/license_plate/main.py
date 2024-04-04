@@ -8,12 +8,23 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
 import argparse
+import os
 import sys
+
+from utils.weight_downloader import FILE_ID, download_file_from_google_drive
+
 from license_plate.pipeline import Pipeline
 from license_plate.utils.logger import Logger
 
-
 if __name__ == "__main__":
+    # get car license plate detection model from google drive
+    if not os.path.exists("weights"):
+        os.mkdir("weights")
+
+    if not os.path.exists('weights/license_plate_detector.pt'):
+        weight_file_path = os.path.join("weights", "license_plate_detector.pt")
+        download_file_from_google_drive(FILE_ID, weight_file_path)
+
     pipeline = Pipeline()
     logger = Logger().get_instance()
 
