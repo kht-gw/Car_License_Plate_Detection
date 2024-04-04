@@ -36,7 +36,7 @@ if __name__ == "__main__":
     try:
         options = parser.parse_args()
     except Exception as error:
-        print(error)
+        logger.error(error)
 
         sys.exit(0)
 
@@ -51,4 +51,4 @@ if __name__ == "__main__":
         mode = "VIDEO"
         pipeline.detect_and_ocr(mode, input_dir, output_dir)
     else:
-        print("Invalid mode type.  -h mode for more information")
+        logger.error("Invalid mode type.  -h mode for more information")
