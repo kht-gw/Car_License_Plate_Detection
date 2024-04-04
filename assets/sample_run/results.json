@@ -1,0 +1,159 @@
+[
+  {
+    "file_name": "Cars187.png",
+    "results": [
+      {
+        "bbox_coordinate": [
+          116.234,
+          117.408,
+          279.027,
+          159.679
+        ],
+        "detection_score": 0.872,
+        "ocr_text": "ALR486",
+        "ocr_score": 0.998
+      }
+    ]
+  },
+  {
+    "file_name": "Cars297.png",
+    "results": [
+      {
+        "bbox_coordinate": [
+          157.355,
+          148.991,
+          245.429,
+          170.645
+        ],
+        "detection_score": 0.794,
+        "ocr_text": "IM4U555",
+        "ocr_score": 0.992
+      }
+    ]
+  },
+  {
+    "file_name": "car_1.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          34.455,
+          2715.542,
+          269.961,
+          2818.211
+        ],
+        "detection_score": 0.677,
+        "ocr_text": "APM-6180",
+        "ocr_score": 0.971
+      },
+      {
+        "bbox_coordinate": [
+          1991.948,
+          2495.811,
+          2124.959,
+          2559.6
+        ],
+        "detection_score": 0.638,
+        "ocr_text": "TAG-37",
+        "ocr_score": 0.96
+      },
+      {
+        "bbox_coordinate": [
+          4729.888,
+          2474.528,
+          4945.263,
+          2568.406
+        ],
+        "detection_score": 0.46,
+        "ocr_text": "3253EX",
+        "ocr_score": 0.991
+      },
+      {
+        "bbox_coordinate": [
+          444.62,
+          2326.037,
+          531.478,
+          2375.431
+        ],
+        "detection_score": 0.269,
+        "ocr_text": "license_plate",
+        "ocr_score": 0.0
+      }
+    ]
+  },
+  {
+    "file_name": "car_2.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          1083.239,
+          1838.692,
+          1541.256,
+          1951.677
+        ],
+        "detection_score": 0.789,
+        "ocr_text": "LNI3 GJZ",
+        "ocr_score": 0.929
+      },
+      {
+        "bbox_coordinate": [
+          3145.983,
+          1786.84,
+          3468.087,
+          1864.293
+        ],
+        "detection_score": 0.481,
+        "ocr_text": "AU55DVG",
+        "ocr_score": 0.902
+      }
+    ]
+  },
+  {
+    "file_name": "car_3.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          209.373,
+          652.084,
+          320.127,
+          681.435
+        ],
+        "detection_score": 0.726,
+        "ocr_text": "5AB1749",
+        "ocr_score": 0.989
+      },
+      {
+        "bbox_coordinate": [
+          698.633,
+          614.15,
+          795.439,
+          644.927
+        ],
+        "detection_score": 0.711,
+        "ocr_text": "5AB 6089",
+        "ocr_score": 0.934
+      },
+      {
+        "bbox_coordinate": [
+          1447.828,
+          516.287,
+          1507.959,
+          536.825
+        ],
+        "detection_score": 0.44,
+        "ocr_text": "5AH5098",
+        "ocr_score": 0.994
+      },
+      {
+        "bbox_coordinate": [
+          1116.759,
+          593.401,
+          1169.189,
+          614.057
+        ],
+        "detection_score": 0.348,
+        "ocr_text": "5AB64",
+        "ocr_score": 0.99
+      }
+    ]
+  }
+]
