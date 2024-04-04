@@ -19,15 +19,16 @@ from src.license_plate.utils.weight_downloader import (
 
 class test_image(unittest.TestCase):
     def setUp(self) -> None:
-        self.pipeline = Pipeline()
-
-    def test_image(self):
         if not os.path.exists("weights"):
             os.mkdir("weights")
 
         if not os.path.exists("weights/license_plate_detector.pt"):
             weight_file_path = os.path.join("weights", "license_plate_detector.pt")
             download_file_from_google_drive(FILE_ID, weight_file_path)
+        self.pipeline = Pipeline()
+
+    def test_image(self):
+
         text = ""
         current_dir = os.getcwd()
         img_path = os.path.join(current_dir, "assets/images/Cars297.png")
