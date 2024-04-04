@@ -3,6 +3,8 @@
 This project is the final pipeline of car license plate detection and recognition of car license plate text.
 Image or video can be detected.  
 
+![image](/assets/pipeline_architecture.jpg?raw=true)
+
 ## Input Arguments 
 
 
@@ -145,12 +147,12 @@ After doing detection and ocr, the following outputs will be genereted in sample
 
 #### bounding box image with text
 
-![car image](https://github.com/kht-gw/Car_License_Plate_Detection/tree/main/assets/sample_run/bbox_images/Cars297.png)
+![car image](/assets/sample_run/bbox_images/Cars297.png)
 
 
 #### cropped license plate image
 
-![car image](https://github.com/kht-gw/Car_License_Plate_Detection/tree/main/assets/sample_run/crops/Cars297_1.png)
+![carimage](/assets/sample_run/crops/Cars297_1.jpg?raw=true)
 
 
 
