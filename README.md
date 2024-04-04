@@ -24,6 +24,25 @@ If mode is 2, the input path should be the directory to a single video.
 ~~~
 ---
 
+## System Requirements 
+
+To install the project, you need Pyhton version 3.8 and above. In Linux, please install libGL to run paddleocr. 
+
+```shell
+$ sudo apt-get update && sudo apt-get install libgl1-mesa-glx
+
+```
+
+### Host System Specifications
+The Host OS specifications are as follow:
+
+* Ubuntu Linux: 22.04
+* Cuda Version : 11.7
+* Python Version : 3.10.12
+* Docker Version : 25.0.3
+
+
+
 ## Download Source Code
 ```shell
 $ git clone https://github.com/kht-gw/Final_Pipeline.git
@@ -122,6 +141,95 @@ After doing detection and ocr, the following outputs will be genereted in sample
         + bbox_imgaes
         + results.json 
 
+### Sample Results
+
+#### bounding box image with text
+
+![car image](https://github.com/kht-gw/Car_License_Plate_Detection/tree/main/assets/sample_run/bbox_images/Cars297.png)
+
+
+#### cropped license plate image
+
+![car image](https://github.com/kht-gw/Car_License_Plate_Detection/tree/main/assets/sample_run/crops/Cars297_1.png)
+
+
+
+#### results.json
+
+Detection results of two sample car images are as follow: 
+
+```json
+[
+ 
+  {
+    "file_name": "Cars297.png",
+    "results": [
+      {
+        "bbox_coordinate": [
+          157.355,
+          148.991,
+          245.429,
+          170.645
+        ],
+        "detection_score": 0.794,
+        "ocr_text": "IM4U555",
+        "ocr_score": 0.992
+      }
+    ]
+  },
+  {
+    "file_name": "car_1.jpg",
+    "results": [
+      {
+        "bbox_coordinate": [
+          34.455,
+          2715.542,
+          269.961,
+          2818.211
+        ],
+        "detection_score": 0.677,
+        "ocr_text": "APM-6180",
+        "ocr_score": 0.971
+      },
+      {
+        "bbox_coordinate": [
+          1991.948,
+          2495.811,
+          2124.959,
+          2559.6
+        ],
+        "detection_score": 0.638,
+        "ocr_text": "TAG-37",
+        "ocr_score": 0.96
+      },
+      {
+        "bbox_coordinate": [
+          4729.888,
+          2474.528,
+          4945.263,
+          2568.406
+        ],
+        "detection_score": 0.46,
+        "ocr_text": "3253EX",
+        "ocr_score": 0.991
+      },
+      {
+        "bbox_coordinate": [
+          444.62,
+          2326.037,
+          531.478,
+          2375.431
+        ],
+        "detection_score": 0.269,
+        "ocr_text": "license_plate",
+        "ocr_score": 0.0
+      }
+    ]
+  },
+  
+]
+
+```
 
 ## Outputs of Video Mode
 
