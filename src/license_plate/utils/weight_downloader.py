@@ -31,3 +31,12 @@ def download_file_from_google_drive(id, destination):
         print("Weight File download completed successfully.")
     except Exception as error:
         print(error)
+
+
+if __name__ == "__main__":
+    file_id = "1muzAWdrMfQW67-iT-JclDJaT6Fea_ynQ"  # the ID of the file
+    destination_path = (
+        "weights/license_plate_detector.pt"  # Replace with the destination file path
+    )
+
+    download_file_from_google_drive(file_id, destination_path)
