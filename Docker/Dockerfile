@@ -32,4 +32,4 @@ RUN pip install -e .
 
 # WORKDIR /car_license_app/src
 
-# ENTRYPOINT ["python3", "src/license_plate/main.py"]
+ENTRYPOINT ["python3", "src/license_plate/main.py"]
