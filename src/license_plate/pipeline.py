@@ -7,30 +7,32 @@ mdate : Thursday March 21st 2024
 copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
-import cv2
-import os
-import time
 import json
 import mimetypes
-from license_plate.licenseplate_detector import LicensePlateDetector
-from license_plate.ocr_model import OCR_Model
-from license_plate.utils.logger import Logger
-from license_plate.utils.directory_manager import DirectoryManager
+import os
+import time
+
+import cv2
+
 from license_plate.config.configurations import (
+    BBOX_COLOR,
     IMAGE_COUNT,
     MIN_BBOX_HEIGHT,
     MIN_BBOX_WIDTH,
-    BBOX_COLOR,
     OCR_TEXT_COLOR,
     TEXT_BG_COLOR,
 )
+from license_plate.licenseplate_detector import LicensePlateDetector
+from license_plate.ocr_model import OCRModel
+from license_plate.utils.directory_manager import DirectoryManager
+from license_plate.utils.logger import Logger
 
 
 class Pipeline:
     def __init__(self):
         self.final_results = []
         self.detector = LicensePlateDetector()
-        self.ocr_model = OCR_Model()
+        self.ocr_model = OCRModel()
         self.dir_manager = DirectoryManager()
         self.logger = Logger().get_instance()
 
@@ -275,11 +277,9 @@ class Pipeline:
             x1, y1, x2, y2 = coords
             # license plate bounding box
             img = cv2.rectangle(image, (x1, y1), (x2, y2), BBOX_COLOR, 2)
-
+            return img
         except Exception as error:
             self.logger.error("error occured!", error)
-        else:
-            return img
 
     def get_visualized_img(self, image: object, coords: list, text: str) -> object:
         """Visualize image with OCR Text
@@ -321,10 +321,10 @@ class Pipeline:
                 OCR_TEXT_COLOR,
                 2,
             )
+
+            return img
         except Exception as error:
             self.logger.error("error occured! ", error)
-        else:
-            return img
 
     def create_image_mode_dirs(self, root_output_dir: str) -> None:
         self.dir_manager.create_dir(os.path.join(root_output_dir, "crops"))

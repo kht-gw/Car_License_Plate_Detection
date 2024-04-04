@@ -8,10 +8,11 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
 from paddleocr import PaddleOCR
+
 from license_plate.config.configurations import OCR_PARAMS
 
 
-class OCR_Model:
+class OCRModel:
     def __init__(self) -> None:
         self.ocr = PaddleOCR(
             use_angle_cls=OCR_PARAMS["use_angle_cls"],
