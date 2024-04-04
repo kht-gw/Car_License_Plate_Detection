@@ -85,7 +85,7 @@ class Pipeline:
 
                 self.process_video(input_path, save_dir)
                 self.logger.info(
-                    "Finish processing video ! You can check the detected video inside : "
+                    "\nFinish processing video ! You can check the detected video inside : "
                     + save_dir
                 )
             else:
