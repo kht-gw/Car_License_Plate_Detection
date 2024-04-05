@@ -21,7 +21,16 @@ if __name__ == "__main__":
     if not os.path.exists("weights"):
         os.mkdir("weights")
 
-    if not os.path.exists('weights/license_plate_detector.pt'):
+    # if weights directory exists but empty
+    # weights dir is removed and created again, 
+    # otherwise, can face permession denied to download inside esisting empty dir
+
+    elif not os.path.exists("weights/license_plate_detector.pt"):
+        os.rmdir("weights")
+        os.mkdir("weights")
+
+    if not os.path.exists("weights/license_plate_detector.pt"):
+
         weight_file_path = os.path.join("weights", "license_plate_detector.pt")
         download_file_from_google_drive(FILE_ID, weight_file_path)
 
