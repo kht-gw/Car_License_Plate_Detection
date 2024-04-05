@@ -148,6 +148,20 @@ Replace the variables inside {} with actual values. Please reference [Input Argu
 ```shell
 $ python3 src/license_plate/main.py {mode} {video_dir} {output_dir}
 ```
+## Model Weight file
+
+The system will automatically download the model weight file once it started to run. 
+
+However, you can download the weight file manually. 
+The custom trained Yolov8 object detection model can be downloaded below. 
+
+
+[Download license_plate_detector](https://drive.google.com/drive/u/0/folders/1GgT0VkIk08aEbFebe7ugkfxVfv4UFUBs)
+
+Then go to the root of project directory and create 'weights' folder. You can put 'license_plate_detector.pt' weight file inside 'weights' directory so that the program skips to download the weight file again. 
+
+
+*Car_License_Plate_Detection/weights /license_plate_detector.pt*
 
 ## Outputs of Image Mode
 
