@@ -8,6 +8,7 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
 from ultralytics import YOLO
+
 from license_plate.utils.logger import Logger
 
 
@@ -17,10 +18,10 @@ class LicensePlateDetector:
         self.weight_path = "weights/license_plate_detector.pt"
         self.model = YOLO(self.weight_path)
 
-    def predict_image(self, img_path: str) -> list:
-        results = self.model.predict(source=img_path)
+    def predict(self, path: str) -> list:
+        results = self.model.predict(source=path)
         return results
 
-    def predict_video(self, video_path: str) -> list:
-        results = self.model.predict(source=video_path)
-        return results
+    # def predict_video(self, video_path: str) -> list:
+    #     results = self.model.predict(source=video_path)
+    #     return results

@@ -68,7 +68,8 @@ class Pipeline:
                     exit()
 
             self.create_image_mode_dirs(save_dir)  # create dirs to store results
-            results = self.detector.predict_image(input_path)
+            self.logger.info("Object Detection Starts...")
+            results = self.detector.predict(input_path)
 
             final_results = self.process_img_results(results, save_dir, save)
             if save:
@@ -84,7 +85,7 @@ class Pipeline:
             if os.path.isfile(input_path) and mimetypes.guess_type(input_path)[
                 0
             ].startswith("video"):
-
+                self.logger.info("Object Detection Starts...")
                 self.process_video(input_path, save_dir)
                 self.logger.info(
                     "\nFinish processing video ! You can check the detected video inside : "
@@ -198,7 +199,7 @@ class Pipeline:
                 break
 
             # detect license plates in a frame
-            results = self.detector.predict_video(frame)
+            results = self.detector.predict(frame)
 
             # extract text using ocr
             frame, speed = self.process_video_results(results, frame)

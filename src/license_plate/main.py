@@ -17,12 +17,13 @@ from license_plate.pipeline import Pipeline
 from license_plate.utils.logger import Logger
 
 if __name__ == "__main__":
+    logger = Logger().get_instance()
     # get car license plate detection model from google drive
     if not os.path.exists("weights"):
         os.mkdir("weights")
 
     # if weights directory exists but empty
-    # weights dir is removed and created again, 
+    # weights dir is removed and created again,
     # otherwise, can face permession denied to download inside esisting empty dir
 
     elif not os.path.exists("weights/license_plate_detector.pt"):
@@ -33,9 +34,9 @@ if __name__ == "__main__":
 
         weight_file_path = os.path.join("weights", "license_plate_detector.pt")
         download_file_from_google_drive(FILE_ID, weight_file_path)
-
+    else:
+        logger.info("Weight file already exists. Continue Detection...")
     pipeline = Pipeline()
-    logger = Logger().get_instance()
 
     parser = argparse.ArgumentParser(description="Car License Plate Detection and OCR")
     parser.add_argument(
