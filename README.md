@@ -16,7 +16,8 @@ Inference Time | Precision | Recall | mAP@50 | mAP
 --------------|-----------|--------|--------|------
 2.8 ms | 0.87 | 0.867 | 0.917| 0.525
 
-**FPS (based on above inference time) = 357**
+
+
 
 ## Input Arguments 
 
@@ -225,3 +226,11 @@ Json file output for detection results of above sample car image is as follows:
         + video_name.mp4
 
 
+## Frame Per Second
+
+**FPS (based on above inference time) = 357**
+The following describes the FPS of the two models based on sample images inside assets folder.
+
+**Average FPS of object detection model : 31**
+**Average FPS of OCR model: 15**
+**Total Average FPS : 12**
