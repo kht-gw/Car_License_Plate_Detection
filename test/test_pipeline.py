@@ -7,16 +7,28 @@ mdate : Friday March 29th 2024
 copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
-import unittest
-from src.license_plate.pipeline import Pipeline
 import os
+import unittest
+
+from src.license_plate.pipeline import Pipeline
+from src.license_plate.utils.weight_downloader import (
+    FILE_ID,
+    download_file_from_google_drive,
+)
 
 
 class test_image(unittest.TestCase):
     def setUp(self) -> None:
+        if not os.path.exists("weights"):
+            os.mkdir("weights")
+
+        if not os.path.exists("weights/license_plate_detector.pt"):
+            weight_file_path = os.path.join("weights", "license_plate_detector.pt")
+            download_file_from_google_drive(FILE_ID, weight_file_path)
         self.pipeline = Pipeline()
 
     def test_image(self):
+
         text = ""
         current_dir = os.getcwd()
         img_path = os.path.join(current_dir, "assets/images/Cars297.png")
