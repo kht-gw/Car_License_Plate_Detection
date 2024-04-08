@@ -68,7 +68,8 @@ class Pipeline:
                     exit()
 
             self.create_image_mode_dirs(save_dir)  # create dirs to store results
-            results = self.detector.predict_image(input_path)
+            self.logger.info("Car License Plate Detection Model Starts...")
+            results = self.detector.predict(input_path)
 
             final_results = self.process_img_results(results, save_dir, save)
             if save:
@@ -120,6 +121,9 @@ class Pipeline:
                 self.logger.error("Cannot read the image : ", result.path)
                 break
 
+            inference_time = result.speed["inference"]
+            inference_time = inference_time / 1000
+
             boxes_xyxy = result.boxes.xyxy.tolist()
             conf_scores = result.boxes.conf.tolist()
             box_conf_pair = list(zip(boxes_xyxy, conf_scores))
@@ -143,11 +147,20 @@ class Pipeline:
                 cropped_img = image[y1:y2, x1:x2]
 
                 # ocr process
+                start_time = time.time()
                 text, text_conf = self.ocr_model.image_to_text(cropped_img)
-
+                end_time = time.time()
+                ocr_time = end_time - start_time
+                total_time = inference_time + ocr_time
                 if text == "":
                     text = "license_plate"
-
+                self.logger.info("\n Total Inference Time : %s ", str(total_time))
+                # self.logger.info(
+                #     "FPS for object detection: %s \n FPS for OCR model: %s \n Total FPS: %s",
+                #     str(inference_time),
+                #     str(ocr_time),
+                #     str(total_time),
+                # )
                 # save results and images if the image is not small
                 if width > MIN_BBOX_WIDTH and height > MIN_BBOX_HEIGHT:
                     detection_detail["bbox_coordinate"] = bbox
@@ -198,7 +211,8 @@ class Pipeline:
                 break
 
             # detect license plates in a frame
-            results = self.detector.predict_video(frame)
+            self.logger.info("\n Car License Plate Detection Model Starts...")
+            results = self.detector.predict(frame)
 
             # extract text using ocr
             frame, speed = self.process_video_results(results, frame)

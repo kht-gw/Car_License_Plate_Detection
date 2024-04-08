@@ -8,8 +8,12 @@ copyright: 2024 GlobalWalkers.inc. All rights reserved.
 """
 
 import urllib.request
+from src.license_plate.utils.logger import Logger
+
 
 FILE_ID = "1muzAWdrMfQW67-iT-JclDJaT6Fea_ynQ"
+
+logger = Logger().get_instance()
 
 
 def download_file_from_google_drive(id, destination):
@@ -19,7 +23,7 @@ def download_file_from_google_drive(id, destination):
         session = urllib.request.urlopen(URL)
         token = session.headers.get("Content-Disposition")
         if token is None:
-            print("Unable to download file. Check the file ID.")
+            logger.error("Unable to download file. Check the file ID.")
             return
 
         file_bytes = session.read()
@@ -28,9 +32,9 @@ def download_file_from_google_drive(id, destination):
         with open(destination, "wb") as f:
             f.write(file_bytes)
 
-        print("Weight file download completed successfully.")
+        logger.info("Weight file download completed successfully.")
     except Exception as error:
-        print(error)
+        logger.error(error)
 
 
 if __name__ == "__main__":
