@@ -15,7 +15,7 @@ FILE_ID = "1muzAWdrMfQW67-iT-JclDJaT6Fea_ynQ"
 def download_file_from_google_drive(id, destination):
     try:
         URL = "https://drive.google.com/uc?export=download&id=" + id
-
+        print("Downloading weight file...")
         session = urllib.request.urlopen(URL)
         token = session.headers.get("Content-Disposition")
         if token is None:
@@ -28,7 +28,7 @@ def download_file_from_google_drive(id, destination):
         with open(destination, "wb") as f:
             f.write(file_bytes)
 
-        print("Weight File download completed successfully.")
+        print("Weight file download completed successfully.")
     except Exception as error:
         print(error)
 
