@@ -5,12 +5,25 @@ Image or video can be detected.
 
 ![image](/assets/pipeline_architecture.png?raw=true)
 
+## Models 
+* Object Detection Model (YoloV8)
+* OCR Model (Paddle OCR)
+
+
+## Object Detection Model Evaluation Metrics on Validation Dataset
+
+Inference Time | Precision | Recall | mAP@50 | mAP
+--------------|-----------|--------|--------|------
+2.8 ms | 0.87 | 0.867 | 0.917| 0.525
+
+**FPS (based on above inference time) = 357**
+
 ## Input Arguments 
 
 
 Before installation of the project, it is impotant to understand the inputs given to run the program. The program accepts three arguments via argparser. 
 
-1. mode :  can be 1 or 2 of integer type. 1 denotes "IMAGE" type and 2 denotes "VIEO" type
+1. mode :  can be 1 or 2 of integer type. 1 denotes "IMAGE" type and 2 denotes "VIDEO" type
 
 2. input_dir : path to image/images/video
 
@@ -43,6 +56,13 @@ The Host OS specifications are as follow:
 * Python Version : 3.10.12
 * Docker Version : 25.0.3
 
+### Required Libraries
+* ultralytics
+* opencv-python
+* paddleocr
+* paddlepaddle
+
+Please reference requirements.txt file.
 
 
 ## Download Source Code
@@ -128,13 +148,24 @@ Replace the variables inside {} with actual values. Please reference [Input Argu
 ```shell
 $ python3 src/license_plate/main.py {mode} {video_dir} {output_dir}
 ```
+## Model Weight file
+
+The system will automatically download the model weight file once it started to run. 
+
+However, you can download the weight file manually. 
+The custom trained Yolov8 object detection model can be downloaded below. 
 
 
+[Download license_plate_detector](https://drive.google.com/drive/u/0/folders/1GgT0VkIk08aEbFebe7ugkfxVfv4UFUBs)
 
+Then go to the root of project directory and create 'weights' folder. You can put 'license_plate_detector.pt' weight file inside 'weights' directory so that the program skips to download the weight file again. 
+
+
+*Car_License_Plate_Detection/weights /license_plate_detector.pt*
 
 ## Outputs of Image Mode
 
-After doing detection and ocr, the following outputs will be genereted in sample_run foder automatically. 'crops' directory contains cropped car license plate images. 'bbox_images' contains the images with detected car license plates and ocr text. 
+After doing detection and ocr, the following outputs will be genereted in sample_run folder automatically. 'crops' directory contains cropped car license plate images. 'bbox_images' contains the images with detected car license plates and ocr text. 
 'results.json' is the json file containing all the information of the process. 
 
 * assets
@@ -158,9 +189,11 @@ After doing detection and ocr, the following outputs will be genereted in sample
 
 #### results.json
 
-Detection results of two sample car images are as follow: 
+Json file output for detection results of above sample car image is as follows: 
+
 
 ```json
+
 [
  
   {
@@ -178,56 +211,7 @@ Detection results of two sample car images are as follow:
         "ocr_score": 0.992
       }
     ]
-  },
-  {
-    "file_name": "car_1.jpg",
-    "results": [
-      {
-        "bbox_coordinate": [
-          34.455,
-          2715.542,
-          269.961,
-          2818.211
-        ],
-        "detection_score": 0.677,
-        "ocr_text": "APM-6180",
-        "ocr_score": 0.971
-      },
-      {
-        "bbox_coordinate": [
-          1991.948,
-          2495.811,
-          2124.959,
-          2559.6
-        ],
-        "detection_score": 0.638,
-        "ocr_text": "TAG-37",
-        "ocr_score": 0.96
-      },
-      {
-        "bbox_coordinate": [
-          4729.888,
-          2474.528,
-          4945.263,
-          2568.406
-        ],
-        "detection_score": 0.46,
-        "ocr_text": "3253EX",
-        "ocr_score": 0.991
-      },
-      {
-        "bbox_coordinate": [
-          444.62,
-          2326.037,
-          531.478,
-          2375.431
-        ],
-        "detection_score": 0.269,
-        "ocr_text": "license_plate",
-        "ocr_score": 0.0
-      }
-    ]
-  },
+  }
   
 ]
 
