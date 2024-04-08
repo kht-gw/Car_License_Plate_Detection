@@ -18,11 +18,13 @@ from license_plate.utils.logger import Logger
 
 if __name__ == "__main__":
     logger = Logger().get_instance()
+    logger = Logger().get_instance()
     # get car license plate detection model from google drive
     if not os.path.exists("weights"):
         os.mkdir("weights")
 
     # if weights directory exists but empty
+    # weights dir is removed and created again,
     # weights dir is removed and created again,
     # otherwise, can face permession denied to download inside esisting empty dir
 

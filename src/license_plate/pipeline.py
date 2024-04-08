@@ -85,7 +85,7 @@ class Pipeline:
             if os.path.isfile(input_path) and mimetypes.guess_type(input_path)[
                 0
             ].startswith("video"):
-
+                self.logger.info("Object Detection Starts...")
                 self.process_video(input_path, save_dir)
                 self.logger.info(
                     "\nFinish processing video ! You can check the detected video inside : "

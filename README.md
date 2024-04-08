@@ -225,6 +225,7 @@ Json file output for detection results of above sample car image is as follows:
     + sample_run
         + video_name.mp4
 
+## Frame Per Second
 
 ## Frame Per Second
 
@@ -234,3 +235,7 @@ The following describes the FPS of the two models based on sample images inside 
 **Average FPS of object detection model : 31**
 **Average FPS of OCR model: 15**
 **Total Average FPS : 12**
+
+* Average FPS of Object Detection Model: **31**
+* Average FPS of OCR model: **15**
+* Average FPS of Pipeline: **12**
