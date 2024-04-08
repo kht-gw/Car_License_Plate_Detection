@@ -165,7 +165,7 @@ Then go to the root of project directory and create 'weights' folder. You can pu
 
 ## Outputs of Image Mode
 
-After doing detection and ocr, the following outputs will be genereted in sample_run foder automatically. 'crops' directory contains cropped car license plate images. 'bbox_images' contains the images with detected car license plates and ocr text. 
+After doing detection and ocr, the following outputs will be genereted in sample_run folder automatically. 'crops' directory contains cropped car license plate images. 'bbox_images' contains the images with detected car license plates and ocr text. 
 'results.json' is the json file containing all the information of the process. 
 
 * assets
@@ -189,7 +189,7 @@ After doing detection and ocr, the following outputs will be genereted in sample
 
 #### results.json
 
-Detection results of two sample car images are as follow: 
+Json file output for detection results of above sample car image is as follows: 
 
 
 ```json
